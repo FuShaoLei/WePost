@@ -32,6 +32,14 @@ public class User {
     @JoinColumn(name = "uid ",referencedColumnName = "id")
     private List<Comment> comments;
 
+    public User() {
+    }
+
+    public User(String account, String password) {
+        this.account = account;
+        this.password = password;
+    }
+
     public int getId() {
         return id;
     }
@@ -86,5 +94,14 @@ public class User {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" +
+                "id=" + id +
+                ", account='" + account + '\'' +
+                ", password='" + password + '\'' +
+                '}';
     }
 }

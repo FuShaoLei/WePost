@@ -1,6 +1,7 @@
 package github.fushaolei.wpserver.entity;
 
 import javax.persistence.*;
+import java.util.Date;
 import java.util.List;
 
 @Entity
@@ -10,18 +11,28 @@ public class Post {
     @GeneratedValue
     private int id;
     @ManyToOne(targetEntity = User.class)
-    @JoinColumn(name = "uid",referencedColumnName = "id")
+    @JoinColumn(name = "uid", referencedColumnName = "id")
     private User user;
-    @Column
-    private String date;
-    @Column
+    @Temporal(TemporalType.DATE)
+    private Date date;
+    @Lob
     private String content;
-    @Column
+    @Lob
     private String picture;
 
     @OneToMany(targetEntity = Comment.class)
-    @JoinColumn(name = "pid ",referencedColumnName = "id")
+    @JoinColumn(name = "pid ", referencedColumnName = "id")
     private List<Comment> comments;
+
+    public Post() {
+    }
+
+    public Post(String content, int uid) {
+        User user = new User();
+        user.setId(uid);
+        this.content = content;
+        this.user = user;
+    }
 
     public int getId() {
         return id;
@@ -39,11 +50,11 @@ public class Post {
         this.user = user;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
@@ -69,5 +80,13 @@ public class Post {
 
     public void setComments(List<Comment> comments) {
         this.comments = comments;
+    }
+
+    @Override
+    public String toString() {
+        return "Post{" +
+                "id=" + id +
+                ", content='" + content + '\'' +
+                '}';
     }
 }

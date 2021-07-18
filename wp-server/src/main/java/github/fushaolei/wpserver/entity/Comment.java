@@ -3,7 +3,7 @@ package github.fushaolei.wpserver.entity;
 import javafx.geometry.Pos;
 
 import javax.persistence.*;
-
+import java.util.Date;
 @Entity
 @Table(name = "wp_comment")
 public class Comment {
@@ -16,8 +16,8 @@ public class Comment {
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "uid",referencedColumnName = "id")
     private User user;
-    @Column
-    private String date;
+    @Temporal(TemporalType.DATE)
+    private Date date;
     @Column
     private String content;
 
@@ -45,11 +45,11 @@ public class Comment {
         this.user = user;
     }
 
-    public String getDate() {
+    public Date getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(Date date) {
         this.date = date;
     }
 
