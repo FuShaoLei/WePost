@@ -36,6 +36,11 @@ public class Reply<T> {
     }
 
 
+    public void setSuccess(){
+        this.setCode(ReplyCode.SUCCESS.getCode());
+        this.setMsg(ReplyCode.SUCCESS.getMsg());
+    }
+
     public static <T> Reply<T> success() {
         Reply<T> reply = new Reply<>();
         reply.setCode(ReplyCode.SUCCESS.getCode());

@@ -8,7 +8,7 @@ import java.util.List;
 
 public interface PostRepo extends JpaRepository<Post, Integer> {
 
-    @Query("select p from Post p where p.user.id = ?1")
+    @Query("select new Post(p.id,p.content) from Post p where p.user.id = ?1")
     List<Post> findAllByUid(int id);
 
 }

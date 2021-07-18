@@ -28,11 +28,17 @@ public class PostController {
 
     @GetMapping("/getposts")
     public Reply getPosts() {
-        List<Post> postList = postRepo.findAllByUid(1);
+
+        List<Post> postList = postRepo.findAllByUid(Integer.parseInt("1"));
         if (postList.size()==0) return Reply.error();
+
         for (Post post : postList) {
             System.out.println(post);
         }
-        return Reply.success();
+
+        Reply<List<Post>> reply = new Reply<>();
+        reply.setSuccess();
+        reply.setData(postList);
+        return reply;
     }
 }

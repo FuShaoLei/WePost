@@ -27,6 +27,11 @@ public class Post {
     public Post() {
     }
 
+    public Post(int id, String content) {
+        this.id = id;
+        this.content = content;
+    }
+
     public Post(String content, int uid) {
         User user = new User();
         user.setId(uid);
