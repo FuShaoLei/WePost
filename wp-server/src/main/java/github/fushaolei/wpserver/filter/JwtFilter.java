@@ -3,6 +3,7 @@ package github.fushaolei.wpserver.filter;
 
 import com.auth0.jwt.interfaces.Claim;
 import github.fushaolei.wpserver.utils.JwtUtil;
+import github.fushaolei.wpserver.utils.TextUtil;
 
 
 import javax.servlet.*;
@@ -16,7 +17,7 @@ import java.util.Map;
 
 @WebFilter(filterName = "JwtFilter", urlPatterns = "/*")
 public class JwtFilter implements Filter {
-    List<String> unMatch = Arrays.asList("/login", "/register", "/test");
+    List<String> unMatch = Arrays.asList("/login", "/register");
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -32,7 +33,7 @@ public class JwtFilter implements Filter {
         String path = request.getServletPath();
         System.out.println("path = " + path);
 
-        if (!unMatch.contains(path)) {
+        if (!TextUtil.isInList(unMatch, path)) {
             String token = request.getHeader("authorization");
             if (token == null || token.isEmpty()) {
                 response.getWriter().write("no token,Can not access");

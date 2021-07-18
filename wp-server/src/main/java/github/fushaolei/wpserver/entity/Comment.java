@@ -7,8 +7,8 @@ import java.util.Date;
 @Entity
 @Table(name = "wp_comment")
 public class Comment {
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
     private int id;
     @ManyToOne(targetEntity = Post.class)
     @JoinColumn(name = "pid",referencedColumnName = "id")

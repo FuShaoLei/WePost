@@ -7,8 +7,8 @@ import java.util.List;
 @Entity
 @Table(name = "wp_post")
 public class Post {
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
     private int id;
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "uid", referencedColumnName = "id")

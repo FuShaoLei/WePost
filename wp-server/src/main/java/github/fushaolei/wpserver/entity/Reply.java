@@ -40,6 +40,11 @@ public class Reply<T> {
         this.setCode(ReplyCode.SUCCESS.getCode());
         this.setMsg(ReplyCode.SUCCESS.getMsg());
     }
+    public void setSuccess(T data){
+        this.setCode(ReplyCode.SUCCESS.getCode());
+        this.setMsg(ReplyCode.SUCCESS.getMsg());
+        this.data = data;
+    }
 
     public static <T> Reply<T> success() {
         Reply<T> reply = new Reply<>();

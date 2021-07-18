@@ -6,8 +6,8 @@ import java.util.List;
 @Entity
 @Table(name = "wp_user")
 public class User {
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     @Id
-    @GeneratedValue
     private int id;
     @Column(unique = true, nullable = false)
     private String account;
