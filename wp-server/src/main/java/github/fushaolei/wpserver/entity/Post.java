@@ -7,7 +7,7 @@ import java.util.List;
 @Entity
 @Table(name = "wp_post")
 public class Post {
-    @GeneratedValue(strategy=GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     private int id;
     @ManyToOne(targetEntity = User.class)
@@ -30,6 +30,15 @@ public class Post {
     public Post(int id, String content) {
         this.id = id;
         this.content = content;
+    }
+
+    public Post(int id, String content, int uid) {
+        this.id = id;
+        this.content = content;
+
+        User user = new User();
+        user.setId(uid);
+        this.user = user;
     }
 
     public Post(String content, int uid) {
