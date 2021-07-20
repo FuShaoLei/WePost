@@ -13,7 +13,7 @@ public class Post {
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "uid", referencedColumnName = "id")
     private User user;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @Lob
     private String content;
@@ -41,11 +41,12 @@ public class Post {
         this.user = user;
     }
 
-    public Post(String content, int uid) {
+    public Post(String content,Date date, int uid) {
         User user = new User();
         user.setId(uid);
         this.content = content;
         this.user = user;
+        this.date = date;
     }
 
     public int getId() {

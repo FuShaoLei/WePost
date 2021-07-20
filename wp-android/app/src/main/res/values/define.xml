@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--blog item-->
+    <dimen name="item_blog_padding">10dp</dimen>
+    <dimen name="item_blog_avator_size">60dp</dimen>
+    <dimen name="item_blog_name_size">20dp</dimen>
+    <dimen name="item_blog_date_size">17dp</dimen>
+    <dimen name="item_blog_content_size">19dp</dimen>
+</resources>

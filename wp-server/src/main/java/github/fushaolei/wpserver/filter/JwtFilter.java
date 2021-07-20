@@ -17,7 +17,7 @@ import java.util.Map;
 
 @WebFilter(filterName = "JwtFilter", urlPatterns = "/*")
 public class JwtFilter implements Filter {
-    List<String> unMatch = Arrays.asList("/login", "/register");
+    List<String> unMatch = Arrays.asList("/login", "/register","/img");
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/blog_bg"
+    android:padding="@dimen/item_blog_padding">
+
+    <ImageView
+        android:id="@+id/iv_avator"
+        android:layout_width="@dimen/item_blog_avator_size"
+        android:layout_height="@dimen/item_blog_avator_size"
+        android:layout_marginRight="10dp"
+        android:src="@drawable/ic_launcher_background" />
+
+    <TextView
+        android:id="@+id/tv_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/iv_avator"
+        android:text="name"
+        android:textColor="@color/blog_author"
+        android:textSize="@dimen/item_blog_name_size"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/tv_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tv_name"
+        android:layout_toRightOf="@id/iv_avator"
+        android:text="date"
+        android:textColor="@color/blog_date"
+        android:textSize="@dimen/item_blog_date_size" />
+
+    <TextView
+        android:id="@+id/tv_content"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/iv_avator"
+        android:text="content content content content content content content"
+        android:textColor="@color/blog_text"
+        android:textSize="@dimen/item_blog_content_size" />
+</RelativeLayout>

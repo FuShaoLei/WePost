@@ -16,7 +16,7 @@ public class Comment {
     @ManyToOne(targetEntity = User.class)
     @JoinColumn(name = "uid",referencedColumnName = "id")
     private User user;
-    @Temporal(TemporalType.DATE)
+    @Temporal(TemporalType.TIMESTAMP)
     private Date date;
     @Column
     private String content;

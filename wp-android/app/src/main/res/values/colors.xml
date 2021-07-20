@@ -7,4 +7,10 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+
+    <color name="blog_author">#262626</color>
+    <color name="blog_text">#252525</color>
+    <color name="blog_date">#A4A4A4</color>
+    <color name="blog_bg">#FFFFFF</color>
 </resources>

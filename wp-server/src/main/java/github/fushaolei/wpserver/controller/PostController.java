@@ -4,6 +4,7 @@ import com.alibaba.fastjson.JSON;
 import github.fushaolei.wpserver.entity.Post;
 import github.fushaolei.wpserver.entity.Reply;
 import github.fushaolei.wpserver.repo.PostRepo;
+import github.fushaolei.wpserver.utils.DateUtil;
 import github.fushaolei.wpserver.utils.JwtUtil;
 import javafx.geometry.Pos;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,6 +15,7 @@ import org.springframework.data.domain.Sort;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.Date;
 import java.util.List;
 
 @RestController
@@ -31,7 +33,7 @@ public class PostController {
         int uid = JwtUtil.getId(request);
         System.out.println("uid = " + uid);
         text = JSON.parseObject(text).getString("text");
-        Post post = postRepo.save(new Post(text, uid));
+        Post post = postRepo.save(new Post(text, new Date(), uid));
         if (post.getId() == 0) return Reply.error();
         return Reply.success();
     }
