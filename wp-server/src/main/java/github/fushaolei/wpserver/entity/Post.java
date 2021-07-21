@@ -32,12 +32,15 @@ public class Post {
         this.content = content;
     }
 
-    public Post(int id, String content, int uid) {
+    public Post(int id,Date date, String content, int uid,String name,String avator) {
         this.id = id;
+        this.date = date;
         this.content = content;
 
         User user = new User();
         user.setId(uid);
+        user.setName(name);
+        user.setAvator(avator);
         this.user = user;
     }
 

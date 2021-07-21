@@ -1,15 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="@dimen/item_blog_normal_padding"
     android:background="@color/blog_bg"
-    android:padding="@dimen/item_blog_padding">
+    android:paddingLeft="@dimen/item_blog_normal_padding"
+    android:paddingTop="@dimen/item_blog_big_padding"
+    android:paddingRight="@dimen/item_blog_normal_padding"
+    android:paddingBottom="@dimen/item_blog_big_padding">
 
     <ImageView
         android:id="@+id/iv_avator"
         android:layout_width="@dimen/item_blog_avator_size"
         android:layout_height="@dimen/item_blog_avator_size"
-        android:layout_marginRight="10dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="15dp"
         android:src="@drawable/ic_launcher_background" />
 
     <TextView

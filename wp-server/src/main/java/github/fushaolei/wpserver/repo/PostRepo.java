@@ -13,7 +13,7 @@ public interface PostRepo extends JpaRepository<Post, Integer> {
     @Query("select new Post(p.id,p.content) from Post p where p.user.id = ?1")
     List<Post> findAllByUid(int id);
 
-    @Query("select new Post(p.id,p.content,p.user.id) from Post p")
+    @Query("select new Post(p.id,p.date,p.content,p.user.id,p.user.name,p.user.avator) from Post p")
     Page<Post> findPostByPage(Pageable pageable);
 
 }
