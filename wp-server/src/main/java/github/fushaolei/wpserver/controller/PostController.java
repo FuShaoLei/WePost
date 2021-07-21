@@ -31,8 +31,9 @@ public class PostController {
     @PostMapping("/create")
     public Reply publishPostText(@RequestBody String text, HttpServletRequest request) {
         int uid = JwtUtil.getId(request);
+        text = text.replace("\"", "");
+        System.out.println("text = " + text);
         System.out.println("uid = " + uid);
-        text = JSON.parseObject(text).getString("text");
         Post post = postRepo.save(new Post(text, new Date(), uid));
         if (post.getId() == 0) return Reply.error();
         return Reply.success();
@@ -62,7 +63,7 @@ public class PostController {
      */
     @GetMapping("/{page}")
     public Reply getPost(@PathVariable("page") int page) {
-        int pageSize = 5;
+        int pageSize = 10;
         Pageable pageable = PageRequest.of(page - 1, pageSize, Sort.Direction.ASC, "id");
         Page<Post> postPage = postRepo.findPostByPage(pageable);
         System.out.println("总条数是：" + postPage.getTotalElements() + "，总页数是：" + postPage.getTotalPages());

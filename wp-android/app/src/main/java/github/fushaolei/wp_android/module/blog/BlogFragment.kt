@@ -1,5 +1,6 @@
 package github.fushaolei.wp_android.module.blog
 
+import android.content.Intent
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import github.fushaolei.lib.test.base.ABaseFragment
@@ -11,6 +12,7 @@ import github.fushaolei.wp_android.R
 import github.fushaolei.wp_android.api.ApiService
 import github.fushaolei.wp_android.constant.Constant
 import github.fushaolei.wp_android.entity.Post
+import github.fushaolei.wp_android.module.edit.EditActivity
 import kotlinx.android.synthetic.main.frag_blog.*
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
@@ -27,12 +29,16 @@ class BlogFragment : ABaseFragment() {
 
     override fun initView() {
 
+        float_button.setOnClickListener {
+            startActivity(Intent(context, EditActivity::class.java))
+        }
+
         val lm = LinearLayoutManager(context)
         lm.orientation = RecyclerView.VERTICAL
 
         scope.launch {
-            var token = ACache.get(Constant.TOKEN)
-            var dataList = service!!.getPostList(1, token!!)
+            val token = ACache.get(Constant.TOKEN)
+            val dataList = service!!.getPostList(1, token!!)
             if (dataList.code == 200) {
 
                 dataList.data.forEach {

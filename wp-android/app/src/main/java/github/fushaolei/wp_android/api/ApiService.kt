@@ -18,4 +18,10 @@ interface ApiService {
         @Path("page") page: Int,
         @Header("authorization") token: String,
     ): Reply<List<Post>>
+
+    @POST("/posts/create")
+    suspend fun createPost(
+        @Body text: String,
+        @Header("authorization") token: String,
+    ): Reply<Any>
 }
